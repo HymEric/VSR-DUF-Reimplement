@@ -40,7 +40,7 @@ Testing: python mytest.py**
 If you want to improve it or change something acording your requirements, just feel free to modify it!
 
 ## Author
-EricHym (Yongming He) 
-Interests: CV and Deep Learning
+EricHym (Yongming He)   
+Interests: CV and Deep Learning  
 If you have or find any problems, this is my email: [yongminghe_eric@qq.com](yongminghe_eric@qq.com). And I'm glad to reply it.
 Thanks. 
