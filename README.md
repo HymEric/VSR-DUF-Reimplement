@@ -13,6 +13,12 @@ numpy:1.15.4
 ## Data-preparation
 
 ### The directory tree
+![](https://github.com/HymEric/VSR-DUF-Reimplement/blob/master/tree%20png/folder%20tree.png)
+
+### The data tree
+![](https://github.com/HymEric/VSR-DUF-Reimplement/blob/master/tree%20png/data%20tree.png)
+
+#### Data folder
 Low-resolution:  
 **./data/x_train_data4x/:** The scaled frames by 4x which will be used in train stage  
 **./data/x_valid_data4x/:** The scaled frames by 4x which will be used in valid stage  
@@ -22,8 +28,16 @@ Original-resolution:
 **./data/y_train_data/:** The HR frames which will be used in train stage coresponde to **./data/x_train_data4x/**  
 **./data/y_valid_data/:** The HR frames which will be used in valid stage coresponde to **./data/x_valid_data4x/**
 
+#### Another folders
+
 Results of output:  
 **./result_test/:** The output frames after VSR-DUF processing
+
+**./checkpoint/:** save ckpt  
+**./model/:** save pb model  
+**./logs/:** save graph and variables  
+
+
 
 ## Attention
 
