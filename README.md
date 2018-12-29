@@ -1,5 +1,5 @@
 ## Introdction
-It is a re-implementation of paper named "Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation" which I would say VSR-DUF model. There are both training codes and test codes about VSR-DUF based tensorflow.  
+It is a re-implementation of paper named "Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation" called VSR-DUF model. There are both training codes and test codes about VSR-DUF based tensorflow.  
 
 If you are interested in Image Super-rerolution(ISR) or Video Super-resolution(VSR), you maybe know there is paper author github: [https://github.com/yhjo09/VSR-DUF/](https://github.com/yhjo09/VSR-DUF/ "VSR-DUF")  about VSR-DUF, but it's only can be tested with your Low-resolution frames and can't be trained. Therefor, I try to re-implement this paper based above github repository. I hope this will be helpful for you. 
 
