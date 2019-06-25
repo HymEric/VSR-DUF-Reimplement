@@ -5,6 +5,9 @@ If you are interested in Image Super-rerolution(ISR) or Video Super-resolution(V
 
 If you think it is useful, please star it. Thank you.
 
+## Todo
+[.] The error of image size in reference stage with a specific training modification
+
 ## Environments
 TensorFlow:1.8.0  
 pillow:5.3.0  
