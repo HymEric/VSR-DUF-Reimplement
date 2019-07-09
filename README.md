@@ -5,8 +5,40 @@ If you are interested in Image Super-rerolution(ISR) or Video Super-resolution(V
 
 If you think it is useful, please star it. Thank you.
 
-## Todo
-[.] The error of image size in reference stage with a specific training modification
+## Note
+If your environment is different with mine,you might encounter the error of large image size e.g. 480x270 in reference stage where the output has a black-border (0 value border). Unfortunately, I still havn't find the solution to address it. But this is a simple way to handle it by dividing the matrix before *tf.matmul* in *DynFilter3D* function in utils.py. Thanks to beichengding for his observation and solution.
+```
+def DynFilter3D(x, F, filter_size):
+    '''
+    3D Dynamic filtering
+    input x: (b, t, h, w)
+          F: (b, h, w, tower_depth, output_depth)
+          filter_shape (ft, fh, fw)
+    '''
+    # make tower
+    filter_localexpand_np = np.reshape(np.eye(np.prod(filter_size), np.prod(filter_size)), (filter_size[1], filter_size[2], filter_size[0], np.prod(filter_size)))
+    filter_localexpand = tf.Variable(filter_localexpand_np, trainable=False, dtype='float32',name='filter_localexpand') 
+    x = tf.transpose(x, perm=[0,2,3,1])   # [  1, 270, 480,  1] -> [  1, 270, 480,  1] 
+    x_localexpand = tf.nn.conv2d(x, filter_localexpand, [1,1,1,1], 'SAME') # b, h, w, 1*5*5   result([  1, 270, 480,  25])
+    x_localexpand = tf.expand_dims(x_localexpand, axis=3)  # b, h, w, 1, 1*5*5
+
+    ##########   modification  ##############
+    #   divide the large matrix into two small matrixs before tf.matmul operation
+
+    num = 240                                        # e.g. num=240 free to change
+    xl = x_localexpand[:,:,:num,:,:]                 #  left
+    xr = x_localexpand[:,:,num:,:,:]                 #  right
+    fl = F[:,:,:num,:,:]                             #  left
+    fr = F[:,:,num:,:,:]                             #  right
+    outl = tf.matmul(xl, fl) 
+    outr = tf.matmul(xr, fr) 
+    out = tf.concat([outl, outr], axis = 2)          #  cancat
+
+    ##########   modification  ##############
+    out = tf.squeeze(out, axis=3) # b, h, w, R*R
+
+    return out
+```
 
 ## Environments
 TensorFlow:1.8.0  
