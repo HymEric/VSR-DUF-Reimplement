@@ -86,7 +86,7 @@ And when you are runing mytest.py, you maybe need to modify it as you need to ch
 **Training: python mytrain.py  
 Testing: python mytest.py**
 
-If you want to improve it or change something acording your requirements, just feel free to modify it!
+If you want to improve it or change something according your requirements, just feel free to modify it!
 
 ## Other:
 This is another repository about ISR/VSR [Latest-development-of-ISR-VSR.](https://github.com/HymEric/latest-development-of-ISR-VSR), it's updating with the conference...
