@@ -8,6 +8,7 @@
 @contact: yongminghe_eric@qq.com
 @software: PyCharm
 """
+
 import tensorflow as tf
 from utils import BatchNorm,Conv3D,DynFilter3D,depth_to_space_3D,Huber, LoadImage
 import numpy as np
@@ -249,8 +250,8 @@ with tf.Session(config=config) as sess:
             total_valid_loss = total_valid_loss + valid_loss
             # print('this single valid cost: {:.7f}'.format(valid_loss))
             print("valid cost :" + str(i) + " " + str(j) + " finished.")
-        avg_train_loss=total_train_loss/16/x_train_data.shape[0]
-        avg_valid_loss=total_valid_loss/16/x_valid_data.shape[0]
+        avg_train_loss=total_train_loss/x_train_data.shape[0]
+        avg_valid_loss=total_valid_loss/x_valid_data.shape[0]
         print("Epoch - {:2d}, avg loss on train set: {:.7f}, avg loss on valid set: {:.7f}.".format(global_step, avg_train_loss,avg_valid_loss))
 
         if global_step==0:
