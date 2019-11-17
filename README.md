@@ -6,7 +6,7 @@ If you are interested in Image Super-rerolution(ISR) or Video Super-resolution(V
 If you think it is useful, please star it. Thank you.
 
 ## Note
-If your environment is different with mine,you might encounter the error of large image size e.g. 480x270 in reference stage where the output has a black-border (0 value border). Unfortunately, I still havn't find the solution to address it. But this is a simple way to handle it by dividing the matrix before *tf.matmul* in *DynFilter3D* function in utils.py. Thanks to beichengding for his observation and solution.
+If your environment is different with mine,you might encounter the error of large image size e.g. 480x270 in reference stage where the output has a black-border (0 value border). Unfortunately, I still havn't find the solution to address it. But this is a simple way to handle it by dividing the matrix before *tf.matmul* in *DynFilter3D* function in utils.py. Thanks to **beichengding** for his observation and solution.
 ```
 def DynFilter3D(x, F, filter_size):
     '''
