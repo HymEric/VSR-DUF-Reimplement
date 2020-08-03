@@ -223,7 +223,7 @@ with tf.Session(config=config) as sess:
     sess.run(tf.global_variables_initializer())
     # tf.global_variables_initializer().run()
     for global_step in range(num_epochs):
-        if global_step!=0 & np.mod(global_step,10)==0:
+        if global_step!=0 and np.mod(global_step,10)==0:
             sess.run(learning_rate_decay_op)
         total_train_loss = 0
         total_valid_loss = 0
